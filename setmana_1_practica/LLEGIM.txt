@@ -1,0 +1,11 @@
+Aixo ja va en serio.
+
+Per fer aquest exercici, heu de consultar les instruccions a:
+
+src/test/java/org/formacio/Setmana1Tests.java
+
+No heu de modificar res del test. Tot el que heu de modificar es a src/main/java
+
+Executeu el joc de proves per cada exercici que aneu fent.
+
+anims i a per el verd!!
