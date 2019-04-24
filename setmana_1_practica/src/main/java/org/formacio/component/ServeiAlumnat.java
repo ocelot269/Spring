@@ -44,10 +44,7 @@ public class ServeiAlumnat {
 	public void setNumeroAlumnos(int numeroAlumnos) {
 		this.numeroAlumnos = numeroAlumnos;
 	}
-								//Metodo añadido para sacar el numero de alumnos
-	public void contarAlumnos() {
-		setNumeroAlumnos(getRepositorio().llistaAlumnes().size());
-	}
+	
 	
 	public boolean matricula (int id, String alumne) {
 		if (alumne == null) {
@@ -57,4 +54,21 @@ public class ServeiAlumnat {
 		getRepositorio().altaAlumne(id, alumne);
 		return true;
 	}
+	
+public void inicialitzarRepositoriAlumnes() {
+		
+		String[] alumnes = { "Antonia", "Joan" };
+		final byte POSICIO_INICIAL_REPOSITORI = 1;
+
+		short posicio = POSICIO_INICIAL_REPOSITORI;
+		for (String alumne : alumnes) {
+			repositorio.altaAlumne((int) posicio, alumne);
+			posicio += 1;
+		}
+	}
+	
+	public int nombreAlumnesRepositori() {
+		return repositorio.llistaAlumnes().size();
+	}
+	
 }
