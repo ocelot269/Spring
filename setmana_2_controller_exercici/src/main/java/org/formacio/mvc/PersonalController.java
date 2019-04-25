@@ -7,6 +7,7 @@ import java.util.List;
 import javax.sound.midi.MidiDevice.Info;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,5 +41,10 @@ public class PersonalController {
 	public String consulta(@RequestParam(value="id",required=false, defaultValue ="0") int id) {
 		return getBaseDeDades().get(id);
 	}
-	// Poseu a partir d'aqui els vostre metode
+	
+	@RequestMapping(path="/persona/{id}")// {id} esto indica el parametro que le pasas por url
+	@ResponseBody
+	public String persona(@PathVariable("id") int id) { // Aqui le dices que use el del path
+		return getBaseDeDades().get(id);
+	}
 }
