@@ -26,10 +26,18 @@ public class PersonalController {
 		return baseDeDades;
 	}
 	
+	
 	@RequestMapping(path= "/info")
 	@ResponseBody
-	public String Info() {
+	public String info() {
 		return "Hi ha " + getBaseDeDades().size() + " persones" ;
+	}
+	
+	
+	@RequestMapping(path ="/consulta")
+	@ResponseBody
+	public String consulta(int id) {
+		return getBaseDeDades().get(id);
 	}
 	// Poseu a partir d'aqui els vostre metode
 }
