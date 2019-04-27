@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * els objecte que volguem que siguin arrels de l'XML generat (com és en aquesta cas Persona)
  * estiguin annotats amb @XmlRootElement.
  */
+
 @XmlRootElement
 public class Persona {
 

@@ -1,5 +1,7 @@
 package org.formacio.mvc;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 public class Agenda {
 	
@@ -15,7 +18,6 @@ public class Agenda {
 	@Autowired
 	AgendaService agenda = new AgendaService();
 
-	
 	
 	//getters y setters
 	
@@ -38,6 +40,7 @@ public class Agenda {
 	}
 	
 	
+
 	@RequestMapping(path="/contacte/{id}")
 	@ResponseBody
 	public Persona encontrarPersona(@PathVariable String id)throws Exception {
