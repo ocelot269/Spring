@@ -1,6 +1,7 @@
 package org.formacio.mvc;
 
 import org.formacio.repositori.AgendaService;
+import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,5 +36,18 @@ public class Agenda {
 	public String busquedaTelefonoID(String id) {
 		return getAgenda().recupera(id).getTelefon();
 	}
-
+	
+	
+	@RequestMapping(path="/contacte/{id}")
+	@ResponseBody
+	public Persona encontrarPersona(@PathVariable String id)throws Exception {
+		Exception noExisteContacto = new Exception();
+		if (getAgenda().recupera(id)!=null) {
+			return getAgenda().recupera(id);
+		}
+		else {
+			throw noExisteContacto;
+		}
+		
+	}
 }
