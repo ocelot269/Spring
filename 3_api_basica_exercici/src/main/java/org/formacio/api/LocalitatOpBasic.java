@@ -6,13 +6,14 @@ import javax.persistence.Transient;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Modifica aquesta classe per tal que sigui un component Spring que realitza
  * les operacions de persistencia tal com indiquen les firmes dels metodes
  */
 
-@Component
+@Repository
 public class LocalitatOpBasic {
 
 	@PersistenceContext
