@@ -18,35 +18,34 @@ public class LocalitatOpBasic {
 	@PersistenceContext
 	private EntityManager em;
 
-	public EntityManager getEm() {
-		return em;
-	}
 
 	public Localitat carrega(long id) {
-		return getEm().find(Localitat.class, id);
+		return em.find(Localitat.class, id);
 		
 	}
 	
 	@Transactional
 	public void alta(String nom, Integer habitants) {
-		Localitat localitat = new Localitat();
-        localitat.setNom(nom);
-        localitat.setHabitants(habitants);
-        getEm().persist(localitat);
+		Localitat localidad = new Localitat();
+        localidad.setNom(nom);
+        localidad.setHabitants(habitants);
+        em.persist(localidad);
 	}
 	
 	@Transactional
 	public void elimina(long id) {
 		if (carrega(id)!=null) {
-			Localitat localidadEliminida = getEm().find(Localitat.class, id);
-			getEm().remove(localidadEliminida);
+			Localitat localidadEliminida = em.find(Localitat.class, id);
+			em.remove(localidadEliminida);
 		}
 		else {
 			
 		}
 	}
-
+	
+	@Transactional
 	public void modifica(Localitat localitat) {
+		Localitat localidadModificada = em.merge(localitat);
 	}
 
 }
