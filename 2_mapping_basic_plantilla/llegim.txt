@@ -1,0 +1,23 @@
+Aquest projecte no te cap exercici, simplament explica sobre el codi tot el que s'ha mostrat
+a la teoria.
+
+Per executar-ho, podeu fer-ho al Boot Dashboard, seleccioneu aquest projecte i premeu 
+el botó Start (quadret vermell amb fletxa verda)
+
+La part interessant la veureu als logs: 
+----- creant persona --------
+2017-11-04 19:53:37.526 DEBUG 8099 --- [           main] org.hibernate.SQL     : insert into t_persones (per_id, per_nom, per_sexe) values (null, ?, ?)
+
+Examineu el codi, en particular:
+
+Per veure l'inici de l'aplicació:
+src/main/java/org/formacio/mapping/JpaBasicApplication.java
+
+Per veure el mapping:
+src/main/java/org/formacio/mapping/Persona.java
+
+Encara no ho hem introduit pero podeu veure el codi de persistencia a :
+src/main/java/org/formacio/mapping/Util.java
+
+Per veure i jugar amb les distintes possibilitats sobre la base de dades a emprar aneu a:
+src/main/resources/application.properties

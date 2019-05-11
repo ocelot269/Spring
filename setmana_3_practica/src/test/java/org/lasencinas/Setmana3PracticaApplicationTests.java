@@ -20,6 +20,16 @@ public class Setmana3PracticaApplicationTests {
 	@Autowired
 	private MockMvc mockMvc;
 
+	
+	
+	@Test
+    public void testPeticionesGet() throws  Exception{
+        mockMvc.perform(get("/topics/spring"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'id':'spring','name':'Spring Framework','description':'Spring Framework Description'}"));
+
+    }
+	
 	@Test
 	public void test_obte_nombre_contactes() throws Exception {
 		mockMvc.perform(get("/nombre"))
