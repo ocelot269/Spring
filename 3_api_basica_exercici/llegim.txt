@@ -1,0 +1,26 @@
+Aquest projecte inclou exercicis expresats en forma de tests a 
+src/test/java/org/formacio/api/JpaBasicApplicationTests.java
+
+Abans de comencar, fitxau-vos que a application.properties tenim:
+
+spring.jpa.hibernate.ddl-auto=none
+
+Aixo NO s'ha de tocar! es a dir, l'aplicacio no creara les taules a partir dels vostres
+mappings. La base de dades que emprareu estara al mateix proces (se creara amb l'inici dels tests)
+i l'esquema que tindra el trobareu a 
+
+src/main/resources/schema.sql
+
+Aquest fitxer tampoc s'ha de modificar. Heu de modificar el mapping de la classe Localitat
+per tal que empri la taula T_LOCALITATS i les columnes tal com estan definides a schema.sql
+
+No es necessari saber-ho, pero per si teniu curiositat: Spring Boot, si troba al classpath un fitxer 
+amb nom schema.sql ho executa automaticament a l'inici de l'aplicacio. 
+
+Per altra banda, al test veureu l'annotacio:
+@Sql("classpath:/insert.sql")
+
+Aixo fa que el contingut d'aquest fitxer (que esta a src/test/resources) s'executi abans de CADA UN dels
+tests. Per cert: tampoc aquest fitxer s'ha de modificar, eh?
+
+Dit aixo, aneu a JpaBasicApplicationTests i seguieu les instruccions
