@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 
 import org.formacio.setmana1.domini.Llibre;
 import org.formacio.setmana1.domini.Recomanacio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,16 +17,44 @@ import org.springframework.stereotype.Repository;
 public class LlibreOpsBasic {
 	
 	
+	//variables
+	Llibre libro = null;
+	
 	@PersistenceContext
 	private EntityManager em;
 	/**
 	 * Retorna el llibre amb l'ISBN indicat o, si no existeix, llança un LlibreNoExisteixException
 	 */
 	
-	public Llibre carrega (String isbn) throws LlibreNoExisteixException {
-		return null;
+	
+	//getters and setters 
+	
+	public Llibre getLibro() {
+		return libro;
+	}
+
+
+	public void setLibro(Llibre libro) {
+		this.libro = libro;
 	}
 	
+	
+	public Llibre carrega (String isbn) throws LlibreNoExisteixException {
+		
+		if (em.find(Llibre.class, isbn)!=null) {
+			setLibro(em.find(Llibre.class, isbn));
+		}
+		
+		else {
+			 throw new LlibreNoExisteixException();
+		}
+		
+		return getLibro();
+		
+	}
+	
+
+
 	/**
 	 * Sense sorpreses: dona d'alta un nou llibre amb les propietats especificaques
 	 */
