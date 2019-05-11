@@ -1,0 +1,17 @@
+Aquest projecte inclou exercicis expresats en forma de tests a 
+src/test/java/org/formacio/setmana1/JpaBasicApplicationTests.java
+
+Abans de comencar, fitxau-vos que a application.properties tenim:
+
+spring.jpa.hibernate.ddl-auto=none
+
+Aixo NO s'ha de tocar! es a dir, l'aplicacio no creara les taules a partir dels vostres
+mappings. La base de dades que emprareu estara al mateix proces (se creara amb l'inici dels tests)
+i l'esquema que tindra el trobareu a 
+
+src/main/resources/schema.sql
+
+Aquest fitxer tampoc s'ha de modificar. Heu de modificar el mapping de la classe Llibres
+per tal que empri la taula T_LLIBRES i les columnes tal com estan definides a schema.sql
+
+Dit aixo, aneu a JpaBasicApplicationTests i seguieu les instruccions
