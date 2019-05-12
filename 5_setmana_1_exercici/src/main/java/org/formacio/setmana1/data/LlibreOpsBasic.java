@@ -116,7 +116,12 @@ public class LlibreOpsBasic {
 	 * existeix, retorna null
 	 */
 	public Recomanacio recomenacioPer(String isbn) {
-		return null;
+		setLibro(em.find(Llibre.class, isbn));
+		if (em.find(Llibre.class, isbn)!=null) {
+			return getLibro().getRecomanacio();
+		}else  {
+			return null;
+		}
 	}
 
 }
