@@ -38,7 +38,6 @@ public class LlibreOpsBasic {
 		this.libro = libro;
 	}
 
-	
 	public boolean getLibroBorrado() {
 		return LibroBorrado;
 	}
@@ -46,8 +45,7 @@ public class LlibreOpsBasic {
 	public void setLibroBorrado(boolean libroBorrado) {
 		LibroBorrado = libroBorrado;
 	}
-	
-	
+
 	public Llibre carrega(String isbn) throws LlibreNoExisteixException {
 
 		if (em.find(Llibre.class, isbn) != null) {
@@ -95,7 +93,10 @@ public class LlibreOpsBasic {
 	/**
 	 * Guarda a bbdd l'estat del llibre indicat
 	 */
+	@Transactional
 	public void modifica(Llibre llibre) {
+		em.merge(llibre);
+
 	}
 
 	/**
@@ -103,7 +104,11 @@ public class LlibreOpsBasic {
 	 * (Aquest metode no llanca excepcions!)
 	 */
 	public boolean existeix(String isbn) {
-		return false;
+		if (em.find(Llibre.class, isbn)!=null) {
+			return true;
+		}else  {
+			return false;
+		}
 	}
 
 	/**
