@@ -3,6 +3,7 @@ package org.formacio.setmana1.data;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.formacio.setmana1.domini.Llibre;
 import org.formacio.setmana1.domini.Recomanacio;
@@ -54,11 +55,17 @@ public class LlibreOpsBasic {
 	}
 	
 
-
 	/**
 	 * Sense sorpreses: dona d'alta un nou llibre amb les propietats especificaques
 	 */
+	@Transactional
 	public void alta (String isbn, String autor, Integer pagines, Recomanacio recomanacio, String titol) {
+		libro.setIsbn(isbn);
+		libro.setAutor(autor);
+		libro.setPagines(pagines);
+		libro.setRecomanacio(recomanacio);
+		libro.setTitol(titol);
+		em.persist(libro);
 	}
 	
 	/**
@@ -66,6 +73,8 @@ public class LlibreOpsBasic {
 	 * @param isbn del llibre a eliminar
 	 * @return true si s'ha esborrat el llibre, false si no existia
 	 */
+	
+	@Transactional
 	public boolean elimina (String isbn) {
 		return true;
 	}
