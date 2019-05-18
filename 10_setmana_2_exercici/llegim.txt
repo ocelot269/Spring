@@ -1,0 +1,4 @@
+Aquest projecte inclou exercicis expresats en forma de tests a 
+src/test/java/org/formacio/setmana1/JpaBasicApplicationTests.java
+
+Aneu a aquest fitxer i seguieu les instruccions
