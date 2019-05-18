@@ -1,0 +1,5 @@
+Projecte a on s'empra un nou component @Service que encapsula les operacions tal
+com son vistes per l'usuari (no en les seves parts individuals). 
+
+Aquest component es ideal per demarcar les transaccions. Internament, fa us de les
+operacions mes basiques definides al repositori.

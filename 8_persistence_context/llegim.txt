@@ -1,0 +1,6 @@
+Projecte que mostra quan les operacions SQL generades semblen no encaixar amb els
+metodes de l'entity manager que invoquem ... a no ser, clar, que coneguem be com
+funciona el persistence context
+
+Executeu el joc de proves i contrasteu l'SQL que es genera en cada cas amb les 
+operacions que fa el test.

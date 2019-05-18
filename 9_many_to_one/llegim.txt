@@ -1,0 +1,6 @@
+Mostra de codi amb relacio many_to_one
+
+Podeu veure la relacio dins la classe Persona i el codi d'exemple que el 
+gestiona dins del test.
+
+Executeu el test per veure les sentencies SQL que se generen.
