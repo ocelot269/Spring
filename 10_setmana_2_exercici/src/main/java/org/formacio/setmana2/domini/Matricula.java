@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_matricules")
+
 public class Matricula {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "mat_id")
@@ -24,6 +25,7 @@ public class Matricula {
 	@OneToOne
 	private Curs curs;
 	
+
 	public Long getId() {
 		return id;
 	}

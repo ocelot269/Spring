@@ -18,17 +18,7 @@ public class Alumne {
 	public int hashCode() {
 		return Objects.hash(nom);
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Alumne))
-			return false;
-		Alumne other = (Alumne) obj;
-		return Objects.equals(nom, other.nom);
-	}
+	
 	@Column(name ="alu_edat")
 	private int edat;
 	
@@ -45,5 +35,16 @@ public class Alumne {
 		this.edat = edat;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Alumne))
+			return false;
+		Alumne other = (Alumne) obj;
+		return Objects.equals(nom, other.nom);
+	}
 	
 }
