@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "T_LLIBRES")
 public class Llibre {
+	
 	@Id 
 	@Column(name = "LLI_ISBN")
 	private String isbn;

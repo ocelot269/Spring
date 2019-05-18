@@ -46,6 +46,8 @@ public class LlibreOpsBasic {
 		LibroBorrado = libroBorrado;
 	}
 
+	
+	
 	public Llibre carrega(String isbn) throws LlibreNoExisteixException {
 
 		if (em.find(Llibre.class, isbn) != null) {
@@ -83,6 +85,7 @@ public class LlibreOpsBasic {
 	@Transactional
 	public boolean elimina(String isbn) {
 		if (em.find(Llibre.class, isbn) != null) {
+			
 			setLibro(em.find(Llibre.class, isbn));
 			em.remove(getLibro());
 			setLibroBorrado(true);
@@ -117,7 +120,7 @@ public class LlibreOpsBasic {
 	 */
 	public Recomanacio recomenacioPer(String isbn) {
 		setLibro(em.find(Llibre.class, isbn));
-		if (em.find(Llibre.class, isbn)!=null) {
+		if (existeix(isbn)) {
 			return getLibro().getRecomanacio();
 		}else  {
 			return null;

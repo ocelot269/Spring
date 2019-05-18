@@ -1,0 +1,9 @@
+Per fer aquest exercici heu de completar les indicacions que surten a :
+
+src/main/resources/templates/joc.html i
+src/main/java/org/formacio/mvc/MentalistaController.java
+
+el resultat final sera una apliacio accessible des de :
+http://localhost:8080/
+
+aquest exercici no te proves unitaries!

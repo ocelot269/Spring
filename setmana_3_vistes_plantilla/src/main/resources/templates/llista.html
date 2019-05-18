@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+ 
+    <!-- 
+    fitxau-vos que no emprem ${} sino #{} -> indica que cerquem un text externalitzat.
+    La configuració l'ha feta la classe org.formacio.mvc.ResourcesConfig
+     -->
+    <h2 th:text="#{titol}">Llista de valors</h2>
+
+    <!-- 
+       Element que nomes es mostrar si la llista esta buida:
+       - #lists referencia un "contextual object" que thymeleaf ens fa disponible per defecte
+       - entre els metodes d'utilitat de lists hi ha isEmpty i size
+     -->
+    <span th:if="${#lists.isEmpty(llista)}">No hi ha valors</span>
+
+    <!-- 
+      th:each itera sobra una llista de valors (${llista}) i, per cada iteració, actualitza la 
+      variable fila
+      th:text=${fila} fa que cada fila tengui com a text l'element de la llista que iterem
+     -->
+    <ol>
+      <li th:each="fila: ${llista}" th:text="${fila}" >valor</li>
+    </ol>
+    
+    <!--
+     un altre exemple de condicional però ara amb unless: nomes se mostra si el contingut s'avalua a false
+     El text mostrat es la concatenacio dels literals 'hi ha' i 'elements' amb el resultat d'avaluar lists.size 
+     -->
+    <p th:unless="${#lists.isEmpty(llista)}" th:text="${'hi ha ' + #lists.size(llista) + ' elements'}">
+        Hi ha 3 elements
+    </p>
+    
+    <form action="/add" method="post">
+        Nou : <input type="text" name="nou" />
+        <input type="submit" value="Afegir" />
+    </form> 
+
+</body>
+</html>
+

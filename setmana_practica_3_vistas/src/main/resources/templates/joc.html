@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+ 
+    <h1>El mentalista</h1>
+    
+    <p>
+      Has de fer de mentalista: He pensat un número entre 1 i 10 i l'has d'endevinar!
+    </p>
+    
+    <!-- Aquest formulari nomes ha de sortir si la variable del model "encert" es falsa -->
+    <form action="intent" method="post">
+        Nou : <input type="text" name="intent" />
+        <input type="submit" value="Intentar" />
+    </form> 
+    
+    <!-- mostrar a una llista no ordenada el valor de "intents" (es una llista de nombres)  -->
+ 
+    <!--  paragraf a mostrar si la variable "encert" es certa  -->
+    <p >Enhorabona has guanyat ! <a href="/reinici">Tornar a jugar</a></p> 
+    
+    <!-- adaptar per a que el nombre de intents que mostri sigui el correcte (el tamany de la llista "intents") -->
+    <p>duus 4 intents</p>
+</body>
+</html>
+
