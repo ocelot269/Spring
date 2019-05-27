@@ -28,9 +28,6 @@ public class RepositoriEscola {
 		Alumne alumnoExistente = em.find(Alumne.class, alumne);
 		Curs cursoExistente = this.carregaCurs(curs);
 		
-		if (alumnoExistente==null || cursoExistente==null) {
-			return null;
-		}
 		
 		if (alumnoExistente.getEdat()>=cursoExistente.getEdatMinima()) {
 			Matricula nuevaMatricula = new Matricula();

@@ -1,0 +1,3 @@
+Exercici per fer a partir dels tests a
+
+src/test/java/org/formacio/JpaBasicApplicationTests.java

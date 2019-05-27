@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+//Constructor vacio obligatorio
+
 @Entity
 @Table(name ="t_alumnes")
 public class Alumne {
