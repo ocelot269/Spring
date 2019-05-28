@@ -17,6 +17,9 @@ public class FacturesService {
 	@Autowired
 	FacturesRepositori repositorio;
 	
+	@Autowired
+	FidalitzacioService fidel;
+	
 	/*
 	 * Aquest metode ha de carregar la factura amb id idFactura i afegir una nova linia amb les dades
 	 * passades (producte i totalProducte)
@@ -25,6 +28,7 @@ public class FacturesService {
 	 * 
 	 * Per implementar aquest metode necessitareu una referencia (dependencia) a FacturesRepositori
 	 */
+	
 	public Factura afegirProducte (long idFactura, String producte, int totalProducte) {
 		LiniaFactura linea = new LiniaFactura();
 		Optional<Factura> factura = repositorio.findById(idFactura);
@@ -33,7 +37,15 @@ public class FacturesService {
 			linea.setTotal(totalProducte);
 			factura.get().getLinies().add(linea);
 			repositorio.save(factura.get());
+			this.enviarEmail(factura.get());
 		}
 		return factura.get();
+	}
+
+
+	public void enviarEmail(Factura factura) {
+		if (factura.getLinies().size() >= 4) {
+			fidel.notificaRegal(factura.getClient().getEmail());
+		}
 	}
 }
