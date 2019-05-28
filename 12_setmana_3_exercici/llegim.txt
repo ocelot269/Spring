@@ -1,0 +1,5 @@
+Teniu el detall del que s'ha de fer al test :
+
+src/test/java/org/formacio/JpaBasicApplicationTests
+
+Aquest test es una mica mes exigent! sort i demanau als forums qualsevol dubte!
